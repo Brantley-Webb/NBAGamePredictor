@@ -3,6 +3,7 @@ import numpy as np
 import sklearn as sk
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
 
 from sportsreference.nfl.boxscore import Boxscores, Boxscore
 
