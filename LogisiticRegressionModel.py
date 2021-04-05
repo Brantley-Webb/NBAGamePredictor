@@ -350,7 +350,7 @@ if __name__ == '__main__':
     X_test = our_test_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
     y_test = our_test_dataframe[['result']]
 
-    result = sk.LogisitcRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, ntercept_scaling=1,
+    result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, ntercept_scaling=1,
                                    class_weight='balanced', random_state=None, solver='liblinear', max_iter=1000,
                                    multi_class='ovr', verbose=0)
 
