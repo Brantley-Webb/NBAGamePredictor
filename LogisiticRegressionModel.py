@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import sklearn as sk
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 from sportsreference.nfl.boxscore import Boxscores, Boxscore
 
@@ -320,7 +322,7 @@ class LogisticRegressionModel:
         nfl_schedule_df = self.get_nfl_schedule()
         game_stats_for_season = self.get_game_stats_for_season()
         aggregated_game_stats_for_season = self.agg_weekly_data(nfl_schedule_df, game_stats_for_season, current_week, weeks)
-        train_dataframe, test_dataframe = sk.model_selection.train_test_split(aggregated_game_stats_for_season, test_size=0.2,
+        train_dataframe, test_dataframe = train_test_split(aggregated_game_stats_for_season, test_size=0.2,
                                                               random_state=78, shuffle=True)
 
         return train_dataframe, test_dataframe
@@ -334,7 +336,7 @@ class LogisticRegressionModel:
                 f'The away team: {away_team} have a probability of {win_probability} of beating the home team: {home_team}.')
 
     def display_accuracy(self, y_test, y_prediction):
-        accuracy = sk.metrics.accuracy_score(y_test, np.round(y_prediction))
+        accuracy = accuracy_score(y_test, np.round(y_prediction))
         print("The accuracy of the model was: " + str(accuracy))
 
 
