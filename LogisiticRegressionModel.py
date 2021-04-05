@@ -320,7 +320,7 @@ class LogisticRegressionModel:
         nfl_schedule_df = self.get_nfl_schedule()
         game_stats_for_season = self.get_game_stats_for_season()
         aggregated_game_stats_for_season = self.agg_weekly_data(nfl_schedule_df, game_stats_for_season, current_week, weeks)
-        train_dataframe, test_dataframe = sk.metrics.train_test_split(aggregated_game_stats_for_season, test_size=0.2,
+        train_dataframe, test_dataframe = sk.model_selection.train_test_split(aggregated_game_stats_for_season, test_size=0.2,
                                                               random_state=78, shuffle=True)
 
         return train_dataframe, test_dataframe
