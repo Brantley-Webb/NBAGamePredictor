@@ -350,10 +350,10 @@ if __name__ == '__main__':
     X_test = our_test_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
     y_test = our_test_dataframe[['result']]
 
-    result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, ntercept_scaling=1,
+    result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, intercept_scaling=1,
                                    class_weight='balanced', random_state=None, solver='liblinear', max_iter=1000,
                                    multi_class='ovr', verbose=0)
-
+    X_train.fillna(0)
     result.fit(X_train, np.ravel(y_train.values))
     y_pred = result.predict_proba(X_test)
     y_pred = y_pred[:, 1]
