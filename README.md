@@ -1,1 +1,1 @@
-NBAGamePredictor
+NFLGamePredictor
