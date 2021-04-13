@@ -1,16 +1,11 @@
 import pandas as pd
 import numpy as np
-import sklearn as sk
+
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.linear_model import LogisticRegression
 
 from sportsreference.nfl.boxscore import Boxscores, Boxscore
-
-from datetime import datetime
-
-
-# year, month, day
 
 
 class LogisticRegressionModel:
@@ -180,7 +175,11 @@ class LogisticRegressionModel:
             win_loss_df = weeks_games_df[weeks_games_df.week < weeks[w]][
                 ["team_name", "team_abbr", 'game_won', 'game_lost']].groupby(
                 by=["team_name", "team_abbr"]).sum().reset_index()
-            win_loss_df['win_perc'] = win_loss_df['game_won'] / (win_loss_df['game_won'] + win_loss_df['game_lost'])
+            try:
+                win_loss_df['win_perc'] = win_loss_df['game_won'] / (win_loss_df['game_won'] + win_loss_df['game_lost'])
+            except ZeroDivisionError:
+                win_loss_df['win_perc'] = 0
+
             win_loss_df = win_loss_df.drop(columns=['game_won', 'game_lost'])
 
             try:
@@ -323,6 +322,8 @@ class LogisticRegressionModel:
         nfl_schedule_df = self.get_nfl_schedule()
         game_stats_for_season = self.get_game_stats_for_season()
         aggregated_game_stats_for_season = self.agg_weekly_data(nfl_schedule_df, game_stats_for_season, current_week, weeks)
+        aggregated_game_stats_for_season.drop(3, axis=0, inplace=True)
+        aggregated_game_stats_for_season.drop(10, axis=0, inplace=True)
         train_dataframe, test_dataframe = train_test_split(aggregated_game_stats_for_season, test_size=0.2,
                                                               random_state=78, shuffle=True)
 
@@ -353,7 +354,7 @@ if __name__ == '__main__':
     result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, intercept_scaling=1,
                                    class_weight='balanced', random_state=None, solver='liblinear', max_iter=1000,
                                    multi_class='ovr', verbose=0)
-    X_train.fillna(0)
+
     result.fit(X_train, np.ravel(y_train.values))
     y_pred = result.predict_proba(X_test)
     y_pred = y_pred[:, 1]

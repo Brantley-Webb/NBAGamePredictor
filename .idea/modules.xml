@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/NBAGamePredictor.iml" filepath="$PROJECT_DIR$/.idea/NBAGamePredictor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/NFLGamePredictor.iml" filepath="$PROJECT_DIR$/.idea/NFLGamePredictor.iml" />
     </modules>
   </component>
 </project>
