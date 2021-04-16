@@ -32,24 +32,24 @@ if __name__ == '__main__':
 
     LRM = LogisticRegressionModel()
     our_subsample_size = 1.0
-    our_decreasing_factor = 0.05
-    while our_subsample_size > 0.0:
-        our_train_dataframe, our_test_dataframe = LRM.test_train_dataframe_split(our_file_name, our_subsample_size)
+    # our_decreasing_factor = 0.05
+    # while our_subsample_size > 0.0:
+    our_train_dataframe, our_test_dataframe = LRM.test_train_dataframe_split(our_file_name, our_subsample_size)
 
-        X_train = our_train_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
-        y_train = our_train_dataframe[['result']]
-        X_test = our_test_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
-        y_test = our_test_dataframe[['result']]
+    X_train = our_train_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
+    y_train = our_train_dataframe[['result']]
+    X_test = our_test_dataframe.drop(columns=['away_name', 'away_abbr', 'home_name', 'home_abbr', 'week', 'result'])
+    y_test = our_test_dataframe[['result']]
 
-        result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, intercept_scaling=1,
-                                       class_weight='balanced', random_state=None, solver='liblinear', max_iter=1000,
-                                       multi_class='ovr', verbose=0)
+    result = LogisticRegression(penalty='l1', dual=False, tol=0.001, C=1.0, fit_intercept=True, intercept_scaling=1,
+                                   class_weight='balanced', random_state=None, solver='liblinear', max_iter=1000,
+                                   multi_class='ovr', verbose=0)
 
-        result.fit(X_train, np.ravel(y_train.values))
-        y_pred = result.predict_proba(X_test)
-        y_pred = y_pred[:, 1]
+    result.fit(X_train, np.ravel(y_train.values))
+    y_pred = result.predict_proba(X_test)
+    y_pred = y_pred[:, 1]
 
-        # LRM.display_results(y_pred, our_test_dataframe)
-        LRM.display_accuracy(y_test, y_pred, our_subsample_size)
+    LRM.display_results(y_pred, our_test_dataframe)
+    LRM.display_accuracy(y_test, y_pred, our_subsample_size)
 
-        our_subsample_size = our_subsample_size - our_decreasing_factor
+        # our_subsample_size = our_subsample_size - our_decreasing_factor

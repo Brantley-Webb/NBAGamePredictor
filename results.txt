@@ -1,0 +1,52 @@
+"/Users/brantleywebb/Documents/Auburn/Spring 2021/Machine Learning/Final Project/NFLGamePredictor/venv/bin/python" "/Users/brantleywebb/Documents/Auburn/Spring 2021/Machine Learning/Final Project/NFLGamePredictor/LogisiticRegressionModel.py"
+The away team: Los Angeles Chargers have a probability of 0.58 of beating the home team: Denver Broncos.
+The away team: Houston Texans have a probability of 0.55 of beating the home team: Tennessee Titans.
+The away team: Dallas Cowboys have a probability of 0.68 of beating the home team: New York Jets.
+The away team: New York Giants have a probability of 0.39 of beating the home team: New England Patriots.
+The away team: Seattle Seahawks have a probability of 0.73 of beating the home team: Cleveland Browns.
+The away team: San Francisco 49ers have a probability of 0.8 of beating the home team: Los Angeles Rams.
+The away team: Minnesota Vikings have a probability of 0.54 of beating the home team: New York Giants.
+The away team: Houston Texans have a probability of 0.49 of beating the home team: Tampa Bay Buccaneers.
+The away team: Denver Broncos have a probability of 0.29 of beating the home team: Green Bay Packers.
+The away team: Pittsburgh Steelers have a probability of 0.22 of beating the home team: Los Angeles Chargers.
+The away team: Washington Redskins have a probability of 0.18 of beating the home team: Green Bay Packers.
+The away team: Miami Dolphins have a probability of 0.16 of beating the home team: New England Patriots.
+The away team: Minnesota Vikings have a probability of 0.42 of beating the home team: Seattle Seahawks.
+The away team: Tampa Bay Buccaneers have a probability of 0.63 of beating the home team: Detroit Lions.
+The away team: Miami Dolphins have a probability of 0.38 of beating the home team: New York Jets.
+The away team: Cincinnati Bengals have a probability of 0.56 of beating the home team: Pittsburgh Steelers.
+The away team: Minnesota Vikings have a probability of 0.61 of beating the home team: Chicago Bears.
+The away team: Tennessee Titans have a probability of 0.69 of beating the home team: Atlanta Falcons.
+The away team: Los Angeles Rams have a probability of 0.59 of beating the home team: Seattle Seahawks.
+The away team: Cleveland Browns have a probability of 0.61 of beating the home team: Cincinnati Bengals.
+The away team: Kansas City Chiefs have a probability of 0.53 of beating the home team: Oakland Raiders.
+The away team: Washington Redskins have a probability of 0.19 of beating the home team: Carolina Panthers.
+The away team: Minnesota Vikings have a probability of 0.69 of beating the home team: Kansas City Chiefs.
+The away team: Oakland Raiders have a probability of 0.51 of beating the home team: Denver Broncos.
+The away team: Philadelphia Eagles have a probability of 0.54 of beating the home team: Minnesota Vikings.
+The away team: New York Giants have a probability of 0.69 of beating the home team: New York Jets.
+The away team: Los Angeles Chargers have a probability of 0.4 of beating the home team: Jacksonville Jaguars.
+The away team: Carolina Panthers have a probability of 0.43 of beating the home team: Houston Texans.
+The away team: Philadelphia Eagles have a probability of 0.61 of beating the home team: Dallas Cowboys.
+The away team: Tennessee Titans have a probability of 0.3 of beating the home team: Houston Texans.
+The away team: New York Jets have a probability of 0.62 of beating the home team: Washington Redskins.
+The away team: Cleveland Browns have a probability of 0.57 of beating the home team: Pittsburgh Steelers.
+The away team: New York Giants have a probability of 0.58 of beating the home team: Chicago Bears.
+The away team: Seattle Seahawks have a probability of 0.73 of beating the home team: Los Angeles Rams.
+The away team: New York Jets have a probability of 0.35 of beating the home team: New England Patriots.
+The away team: Detroit Lions have a probability of 0.45 of beating the home team: Chicago Bears.
+The away team: Dallas Cowboys have a probability of 0.57 of beating the home team: New York Giants.
+The away team: Carolina Panthers have a probability of 0.72 of beating the home team: Arizona Cardinals.
+The away team: New Orleans Saints have a probability of 0.68 of beating the home team: Atlanta Falcons.
+The away team: Tennessee Titans have a probability of 0.72 of beating the home team: Denver Broncos.
+The away team: Tennessee Titans have a probability of 0.34 of beating the home team: Indianapolis Colts.
+The away team: Oakland Raiders have a probability of 0.68 of beating the home team: New York Jets.
+The away team: Chicago Bears have a probability of 0.5 of beating the home team: Detroit Lions.
+The away team: Cincinnati Bengals have a probability of 0.22 of beating the home team: Buffalo Bills.
+The away team: Detroit Lions have a probability of 0.4 of beating the home team: Green Bay Packers.
+The away team: Pittsburgh Steelers have a probability of 0.57 of beating the home team: Arizona Cardinals.
+The away team: Denver Broncos have a probability of 0.31 of beating the home team: Buffalo Bills.
+The away team: Detroit Lions have a probability of 0.41 of beating the home team: Oakland Raiders.
+The accuracy of the model was: 0.5 with a subsample size of 1.0
+
+Process finished with exit code 0
