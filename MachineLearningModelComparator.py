@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import scikitplot as skplt
+import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -21,20 +23,6 @@ class MachineLearningModelComparator:
         train_dataframe, test_dataframe = train_test_split(aggregated_game_stats_for_season, test_size=train_test_percentage,
                                                            shuffle=True)
         return train_dataframe, test_dataframe
-
-    def display_results(self, y_prediction, X_test):
-        for game in range(len(y_prediction)):
-            win_probability = round(y_prediction[game], 2)
-            away_team = X_test.reset_index().drop(columns='index').loc[game, 'away_name']
-            home_team = X_test.reset_index().drop(columns='index').loc[game, 'home_name']
-            print(
-                f'The away team: {away_team} have a probability of {win_probability} of beating the home team: {home_team}.')
-
-    def display_accuracy(self, y_test, y_prediction, c_value, file):
-        accuracy = accuracy_score(y_test, np.round(y_prediction))
-        print("The accuracy of the model was: " + str(accuracy) + " with c value of " + str(c_value))
-        file.write(str(accuracy) + "\n")
-        return accuracy
 
 
 if __name__ == '__main__':
@@ -65,9 +53,15 @@ if __name__ == '__main__':
     knn = KNeighborsClassifier(15, weights='uniform', algorithm='auto',
                                   leaf_size=30, p=1, metric='manhattan', metric_params=None, n_jobs=None)
 
-    result = RandomForestClassifier(n_estimators=1000, random_state=None, verbose=0, class_weight='balanced')
+    rf = RandomForestClassifier(n_estimators=1000, random_state=None, verbose=0, class_weight='balanced')
 
-    scaler_and_svm.fit(X_train, np.ravel(y_train.values))
-    y_pred = scaler_and_svm.predict(X_test)
+    svm_proba = scaler_and_svm.fit(X_train, np.ravel(y_train.values)).decision_function(X_test)
+    lr_proba = lr.fit(X_train, np.ravel(y_train.values)).predict_proba(X_test)
+    knn_proba = knn.fit(X_train, np.ravel(y_train.values)).predict_proba(X_test)
+    rf_proba = rf.fit(X_train, np.ravel(y_train.values)).predict_proba(X_test)
 
-    accuracy = SVM.display_accuracy(y_test, y_pred, our_c, file)
+    probas_list = [svm_proba, lr_proba, knn_proba, rf_proba]
+    classifier_names = ['Linear SVM', 'Logistic Regression', 'kNN', 'Random Forest']
+    skplt.metrics.plot_calibration_curve(np.ravel(y_test), probas_list, classifier_names)
+    plt.show()
+
