@@ -34,7 +34,7 @@ class RandomForestModel:
         return accuracy
 
 if __name__ == '__main__':
-    file_name = "2019-NFL-Season-Dataset.csv"
+    file_name = "../NFLDataset/2019-NFL-Season-Dataset.csv"
     accuracy_list = []
     overall_accuracy = 0
     mean_accuracy = 0

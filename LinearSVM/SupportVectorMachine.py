@@ -33,7 +33,7 @@ class SupportVectorMachine:
 
 
 if __name__ == '__main__':
-    our_file_name = "2019-NFL-Season-Dataset.csv"
+    our_file_name = "../NFLDataset/2019-NFL-Season-Dataset.csv"
 
     SVM = SupportVectorMachine()
     our_subsample_size = 1.0

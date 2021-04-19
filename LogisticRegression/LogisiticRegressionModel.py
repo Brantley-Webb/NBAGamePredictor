@@ -31,12 +31,12 @@ class LogisticRegressionModel:
 
 
 if __name__ == '__main__':
-    our_file_name = "2019-NFL-Season-Dataset.csv"
+    our_file_name = "../NFLDataset/2019-NFL-Season-Dataset.csv"
 
     LRM = LogisticRegressionModel()
     our_subsample_size = 1.0
     # our_decreasing_factor = 0.05
-    file = open("accuracy_results.txt", "a+")
+    file = open("../LinearSVM/accuracy_results.txt", "a+")
     file.truncate(0)
     # while our_subsample_size > 0.0:
     # accuracy_list = list()

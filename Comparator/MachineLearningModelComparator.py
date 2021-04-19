@@ -26,7 +26,7 @@ class MachineLearningModelComparator:
 
 
 if __name__ == '__main__':
-    our_file_name = "2019-NFL-Season-Dataset.csv"
+    our_file_name = "../NFLDataset/2019-NFL-Season-Dataset.csv"
 
     MLComparator = MachineLearningModelComparator()
     our_subsample_size = 1.0
