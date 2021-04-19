@@ -70,7 +70,7 @@ class kNearestNeighborModel:
         return sum(lst) / len(lst)
 
 if __name__ == '__main__':
-    our_file_name = "2019-NFL-Season-Dataset.csv"
+    our_file_name = "../NFLDataset/2019-NFL-Season-Dataset.csv"
     acc_perc = []
     sim_acc_perc = []
     file = open("knn_results.txt", "a+")
