@@ -87,4 +87,3 @@ if __name__ == '__main__':
     #Ploting the Random Forest and Ploting a Decision Tree from it
     tree = result.estimators_[125]
     export_graphviz(tree, out_file='decision_tree_number_3.dot', feature_names=['win_perc_dif', 'first_downs_dif', 'fumbles_dif', 'interceptions_dif', 'net_pass_yards_dif', 'pass_attempts_dif', 'pass_completions_dif', 'pass_touchdowns_dif', 'pass_yards_dif', 'penalties_dif', 'points_dif', 'rush_attempts_dif', 'rush_touchdowns_dif', 'rush_yards_dif', 'time_of_possession_dif', 'times_sacked_dif', 'total_yards_dif', 'turnovers_dif', 'yards_from_penalties_dif', 'yards_lost_from_sacks_dif', 'fourth_down_perc_dif', 'third_down_perc_dif'], rounded=True, precision=1)
-    (graph, ) = pydotplus.graph_from_dot_file('decision_tree_number_3.dot')
