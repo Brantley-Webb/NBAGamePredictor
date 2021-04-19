@@ -31,38 +31,6 @@ class SupportVectorMachine:
         file.write(str(accuracy) + ", " + str(max_iterations) + "\n")
         return accuracy
 
-    def graph_svm(self, svm_classifier, training_samples, training_labels):
-        plt.figure(figsize=(10, 5))
-        for i, C in enumerate([1]):
-            decision_function = svm_classifier.decision_function(training_samples)
-            # we can also calculate the decision function manually
-            # decision_function = np.dot(X, clf.coef_[0]) + clf.intercept_[0]
-            # The support vectors are the samples that lie within the margin
-            # boundaries, whose size is conventionally constrained to 1
-            support_vector_indices = np.where(
-                np.abs(decision_function) <= 1 + 1e-15)[0]
-            support_vectors = list()
-            for indice in support_vector_indices:
-                support_vectors.append(training_samples.iloc[indice])
-            # support_vectors = training_samples[support_vector_indices]
-
-            plt.subplot(1, 2, i + 1)
-            plt.scatter(training_samples[:, 0], training_samples[:, 1], c=training_labels, s=30, cmap=plt.cm.Paired)
-            ax = plt.gca()
-            xlim = ax.get_xlim()
-            ylim = ax.get_ylim()
-            xx, yy = np.meshgrid(np.linspace(xlim[0], xlim[1], 50),
-                                 np.linspace(ylim[0], ylim[1], 50))
-            Z = svm_classifier.decision_function(np.c_[xx.ravel(), yy.ravel()])
-            Z = Z.reshape(xx.shape)
-            plt.contour(xx, yy, Z, colors='k', levels=[-1, 0, 1], alpha=0.5,
-                        linestyles=['--', '-', '--'])
-            plt.scatter(support_vectors[:, 0], support_vectors[:, 1], s=100,
-                        linewidth=1, facecolors='none', edgecolors='k')
-            plt.title("C=" + str(C))
-        plt.tight_layout()
-        plt.show()
-
 
 if __name__ == '__main__':
     our_file_name = "2019-NFL-Season-Dataset.csv"
@@ -94,7 +62,6 @@ if __name__ == '__main__':
         y_pred = result.predict(X_test)
 
         accuracy = SVM.display_accuracy(y_test, y_pred, our_max_iterations, file)
-        SVM.graph_svm(result, X_train, y_train)
 
         our_max_iterations = our_max_iterations + our_increasing_factor
 
