@@ -60,8 +60,9 @@ class kNearestNeighborModel:
         # print("The accuracy of the model was: " + str(accuracy))
         return accuracy
 
-    def display_accuracy(self, y_test, y_prediction):
+    def display_accuracy(self, y_test, y_prediction, file):
         accuracy = accuracy_score(y_test, np.round(y_prediction))
+        file.write(str(accuracy) + "\n")
         # print("The accuracy of the model was: " + str(accuracy))
         return accuracy
 
@@ -72,6 +73,8 @@ if __name__ == '__main__':
     our_file_name = "2019-NFL-Season-Dataset.csv"
     acc_perc = []
     sim_acc_perc = []
+    file = open("knn_results.txt", "a+")
+    file.truncate(0)
     for i in range(50):
         kNN = kNearestNeighborModel()
         our_train_dataframe, our_test_dataframe = kNN.test_train_dataframe_split(our_file_name)
@@ -98,7 +101,7 @@ if __name__ == '__main__':
         # print(res)
         sim = kNN.display_sim_accuracy(y_test, res)
         sim_acc_perc.append(sim)
-        reg = kNN.display_accuracy(y_test, y_pred)
+        reg = kNN.display_accuracy(y_test, y_pred, file)
         acc_perc.append(reg)
     sim_avg = kNN.Average(sim_acc_perc)
     print(sim_avg)
