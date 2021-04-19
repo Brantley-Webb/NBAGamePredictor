@@ -6,9 +6,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.svm import LinearSVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
-import matplotlib.pyplot as plt
-from sklearn.feature_extraction.text import CountVectorizer
-import scikitplot as skplt
 
 
 class SupportVectorMachine:
@@ -61,6 +58,5 @@ if __name__ == '__main__':
         y_pred = scaler_and_svm.predict(X_test)
 
         accuracy = SVM.display_accuracy(y_test, y_pred, our_c, file)
-
 
     file.close()
